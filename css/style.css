@@ -1251,6 +1251,9 @@ body {
   .ts__info {
     width: 100%;
   }
+  .ts__info h2 {
+    font-size: 2rem !important;
+  }
   .ts__dates {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -1297,6 +1300,7 @@ body {
   }
   h2 {
     padding: 0 10px;
+    font-size: 3rem !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

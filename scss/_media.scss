@@ -121,6 +121,9 @@
 }
 .ts__info{
   width: 100%;
+  & h2{
+    font-size: 2rem !important;
+  }
 }
 .ts__dates{
 justify-content: center;
@@ -160,6 +163,7 @@ align-items: center;
 }
 h2{
   padding: 0 10px;
+  font-size: 3rem !important;
 }
 //   ===================================================================
 }
