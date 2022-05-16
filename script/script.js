@@ -6,9 +6,25 @@ function menuOnClick() {
 }
 document.querySelector('#menu-bar').addEventListener('click', menuOnClick())
 
-$(document).ready(function(){
-    $('#spotify').attr('src', 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator');    
-});
+let smoothScroll = new scrollToSmooth('a', {
+    targetAttribute: 'href',
+    duration: 400,
+    durationRelative: false,
+    durationMin: false,
+    durationMax: false,
+    easing: 'easeOutCubic',
+    // onScrollStart: (data) => { console.log(data); },
+    // onScrollUpdate: (data) => { console.log(data); },
+    // onScrollEnd: (data) => { console.log(data); },
+    fixedHeader: null
+  })
+  smoothScroll.init();
+setTimeout(() => {
+    $(document).ready(function(){
+        $('#spotify').attr('src', 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator');    
+    });
+      
+  },2000);
 $(document).ready(function() {
     $('#menu-bar').click();  });
 
@@ -51,19 +67,6 @@ $('.eur').click(() => {
     });
 })
 
-let smoothScroll = new scrollToSmooth('a', {
-    targetAttribute: 'href',
-    duration: 400,
-    durationRelative: false,
-    durationMin: false,
-    durationMax: false,
-    easing: 'easeOutCubic',
-    // onScrollStart: (data) => { console.log(data); },
-    // onScrollUpdate: (data) => { console.log(data); },
-    // onScrollEnd: (data) => { console.log(data); },
-    fixedHeader: null
-  })
-  smoothScroll.init();
 
 document.querySelector(".fas").addEventListener('click', () => {
     window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank')
