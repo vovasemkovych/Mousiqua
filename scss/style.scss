@@ -17,8 +17,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
+    @include flex(flex,space-between, baseline,row);
     padding: 1rem 2rem;
     background-color: rgba(19, 24, 29, 0.5);
     transition: 1s;
@@ -28,8 +27,7 @@ body {
         text-transform: uppercase;
         font-weight: 600;
         font-size: .75rem;
-        display: flex;
-        align-items: center;
+        @include flex(flex,baseline, center,row);
     }
 
     &__logo {
@@ -116,8 +114,8 @@ body {
         }
 
         & form {
-            display: flex;
-            flex-direction: column;
+        @include flex(flex,baseline, baseline,column);
+
 
             & input {
                 border: none;
@@ -165,10 +163,8 @@ body {
     background-position: center;
     background-size: cover;
     transition: 1s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex(flex,center, center,column);
+
     color: #ffffff;
     font-family: 'Dosis', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     font-stretch: condensed;
@@ -231,8 +227,7 @@ body {
 }
 
 .togglers {
-    display: flex;
-    justify-content: center;
+    @include flex(flex,center,baseline,row);
 
     &__point::after {
         color: white;
@@ -288,10 +283,8 @@ body {
 }
 
 .songs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex(flex,center, center,column);
+
     padding-top: 10vh;
     color: #ffffff;
     margin-bottom: 10vh;
@@ -349,8 +342,8 @@ body {
     }
 
     &__social {
-        display: flex;
-        justify-content: space-evenly;
+        @include flex(flex,space-evenly,baseline,row);
+
 
         & li {
             border: 2px solid rgb(73, 73, 73);
@@ -389,15 +382,13 @@ body {
 .ts {
     color: #fff;
     padding: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex,center, center,row);
 
     // flex-wrap: wrap;
     &__info {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
+        @include flex(flex,baseline, flex-start,column);
+
+
         width: 35%;
         line-height: 25px;
 
@@ -484,12 +475,10 @@ body {
 
 .disk {
     // height: 100vh;
+    @include flex(flex,center, center,column);
+
     padding: 4rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #efeeee;
-    flex-direction: column;
 
     & h2 {
         position: relative;
@@ -509,8 +498,8 @@ body {
     }
 
     &__exam {
-        display: flex;
-        justify-content: space-between;
+        @include flex(flex,space-between,baseline,row);
+
         flex-wrap: wrap;
     }
 }
@@ -578,25 +567,23 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: #efeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+    @include flex(flex,center, center,column);
     & h2 {
         text-shadow: -1px -1px 0 #DC052D, 1px -1px 0 #DC052D, -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
         font-stretch: condensed;
         font-size: 3.5rem;
         font-weight: 100;
     }
+    & p{
+        font-size: 2rem;
+    }
 }
 
 .band {
     // height: 100vh;
     color: #efeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex,center, center,row);
+
     margin: 50px 0;
     padding: 50px 0;
     border-bottom: 1px solid #303445;
@@ -660,10 +647,8 @@ body {
 .tours{
     margin-bottom: 70vh;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex(flex,center, center,column);
+
     color: #efeeee;
     &__controls{
         & button{
@@ -701,9 +686,8 @@ body {
         right: 0;
         bottom: 0;
         &__block{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        @include flex(flex,space-between, center,row);
+
             border-bottom: 1px solid #303445;
             padding: 10px;
             margin-bottom: 20px;
@@ -729,10 +713,8 @@ body {
     }
 }
 .contacts{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex(flex,center, center,column);
+
     color: #efeeee;
     // border-top: 1px solid rgb(255, 255, 255);
     & h2{
