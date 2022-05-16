@@ -6,6 +6,9 @@ function menuOnClick() {
 }
 document.querySelector('#menu-bar').addEventListener('click', menuOnClick())
 
+$(document).ready(function(){
+    $('#spotify').attr('src', 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator');    
+});
 $(document).ready(function() {
     $('#menu-bar').click();  });
 
