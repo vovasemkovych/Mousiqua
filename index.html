@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/stratocaster_guitar_black.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>MOUSIQUA.</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">MOUSIQUA.</div>
+        <div id="menu" class="header__menu ">
+            <div id="menu-bar" onclick="menuOnClick()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <nav class="nav" id="nav">
+                <ul class="menu_list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#new">New</a></li>
+                    <li><a href="#disc">Discography</a></li>
+                    <li><a href="#band">Band</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#contacts">Contanct</a></li>
+                    <div class="search"><i class="bi bi-search "></i></div>
+                </ul>
+            </nav>
+            <div class="menu-bg" id="menu-bg"></div>
+            <div class="smenu">
+                <div class="smenu__input">
+                    <div class="smenu__close">
+                    </div>
+                    <h3>Looking for something?</h3>
+                    <form action="">
+                        <input type="text">
+                        <button type="submit">FIND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="start">
+            <div class="start_slide start_slide1">
+                <h1 style="text-transform: uppercase;">
+                    Welcome To MOUSIQUA
+                </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur.</p>
+            </div>
+            <div class="start_slide start_slide2">
+                <h2>
+                    <h1 style="text-transform: uppercase;">
+                        New album is Out
+                    </h1>
+                    <p>Lorem ipsum dolor sit.</p>
+                </h2>
+                <div class="container">
+                    <a href="https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers"> </a>
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="controls">
+                <ul class="togglers">
+                    <li class="togglers__point point1"></li>
+                    <li class="togglers__point point2"></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="new" class="songs" style="height:100vh;">
+            <div class="songs__info info">
+                <h2>LATEST ALBUM</h2>
+                <ul class="info__text">
+                    <li><span>LABEL:</span> <i>Unlimited Love</i></li>
+                    <li><span>RELEASED:</span> <i>22/3/22</i></li>
+                    <li><span>GENRE:</span> <i>Rock</i></li>
+                    <li><span>STYLE:</span> <i>Alternative</i></li>
+                </ul>
+                <ul class="info__social">
+                    <li><i class="bi bi-apple"></i></li>
+                    <li><i class="bi bi-play-fill"></i></li>
+                    <li><i class="bi bi-music-note"></i></li>
+                    <li><i class="bi bi-ear-fill"></i></li>
+                    <li><i class="bi bi-spotify"></i></li>
+                    <li><i class="bi bi-youtube"></i></li>
+                </ul>
+            </div>
+            <div class="songs__playlist playlist">
+                <iframe class=".playlist-spotify" style="border-radius:15px; width: 50vw; min-width: 270px;"
+                    src="https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator" width="100%"
+                    height="380" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+        </section>
+        <section class="tour_short ts">
+            <div class="ts__info">
+                <h2>A DIFFERENT KIND OF MUSIC</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo ipsam sed nisi ut debitis quae aut,
+                    necessitatibus esse accusamus ad at! Dignissimos repellat optio, deserunt dolore ipsa repudiandae
+                    architecto facere quae exercitationem accusamus veniam qui inventore quis neque numquam
+                    consequuntur?</p>
+                <div class="ts__info__social">
+                    <ul class="info__social">
+                        <li><i class="bi bi-apple"></i></li>
+                        <li><i class="bi bi-play-fill"></i></li>
+                        <li><i class="bi bi-music-note"></i></li>
+                        <li><i class="bi bi-ear-fill"></i></li>
+                        <li><i class="bi bi-spotify"></i></li>
+                        <li><i class="bi bi-youtube"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ts__dates">
+                <div class="ts__dates__block tdb1">
+                    <h4>UPCOMING TOUR</h4>
+                    <span>Fort Manson Center</span>
+                    <span>San Francisco, CA</span>
+                </div>
+                <div class="ts__dates__block tdb2">
+                    <h4>LOCATION</h4>
+                    <span>Sunday to Wednesday</span>
+                    <span>July 23 to 26, 2022</span>
+                </div>
+                <button class="ts__dates__button"><i class="bi bi-ticket-perforated"></i> BUY A TICKET</button>
+            </div>
+        </section>
+
+        <section id="disc" class="disk">
+            <h2>DISCOGRAPHY</h2>
+            <div class="disk__exam">
+                <div class="album">
+                    <h5>UNLIMITED LOVE</h5>
+                    <a href="">Listen here ></a>
+                    <div class="album__img">
+                        <img src="img/Red_Hot_Chili_Peppers_-_Unlimited_Love.webp" alt="">
+                    </div>
+                    <div class="album__social">
+                        <ul class="info__social">
+                            <li><i class="bi bi-apple"></i></li>
+                            <li><i class="bi bi-play-fill"></i></li>
+                            <li><i class="bi bi-music-note"></i></li>
+                            <li><i class="bi bi-ear-fill"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="album">
+                    <h5>THE GETAWAY</h5>
+                    <a href="">Listen here ></a>
+                    <div class="album__img">
+                        <img src="img/Thegetawayalbum.webp" alt="">
+                    </div>
+                    <div class="album__social">
+                        <ul class="info__social">
+                            <li><i class="bi bi-apple"></i></li>
+                            <li><i class="bi bi-play-fill"></i></li>
+                            <li><i class="bi bi-music-note"></i></li>
+                            <li><i class="bi bi-ear-fill"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="album">
+                    <h5>I'M WITH YOU</h5>
+                    <a href="">Listen here ></a>
+                    <div class="album__img">
+                        <img src="img/RHCP_I_m_With_You_Cover.webp" alt="">
+                    </div>
+                    <div class="album__social">
+                        <ul class="info__social">
+                            <li><i class="bi bi-apple"></i></li>
+                            <li><i class="bi bi-play-fill"></i></li>
+                            <li><i class="bi bi-music-note"></i></li>
+                            <li><i class="bi bi-ear-fill"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="album">
+                    <h5>CALIFORNICATION</h5>
+                    <a href="">Listen here ></a>
+                    <div class="album__img">
+                        <img src="img/RedHotChiliPeppersCalifornication.webp" alt="">
+                    </div>
+                    <div class="album__social">
+                        <ul class="info__social">
+                            <li><i class="bi bi-apple"></i></li>
+                            <li><i class="bi bi-play-fill"></i></li>
+                            <li><i class="bi bi-music-note"></i></li>
+                            <li><i class="bi bi-ear-fill"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="time">
+            <h2>TIME LEFT UNTIL UPCOMING TOUR</h2>
+            <p>27 to 31 July 2022 with over 10 shows - Cincinnati, Ohio</p>
+        </section>
+        <section id="band" class="band">
+            <h2>BAND MEMBERS</h2>
+            <div class="group">
+                <div class="members">
+                    <div class="members__img">
+                        <img src="./img/band1_1.webp" alt="">
+                    </div>
+                    <div class="members__info">
+                        <h5>ANTHONY KIEDIS</h5>
+                        <p>Lead vocal</p>
+                    </div>
+                </div>
+                <div class="members">
+                    <div class="members__img">
+                        <img src="./img/band2_1.webp" alt="">
+                    </div>
+                    <div class="members__info">
+                        <h5>FLEA</h5>
+                        <p>Bass guitar</p>
+                    </div>
+                </div>
+                <div class="members">
+                    <div class="members__img">
+                        <img src="./img/band4_1.webp" alt="">
+                    </div>
+                    <div class="members__info">
+                        <h5>JOHN FRUSCIANTE</h5>
+                        <p>Lead guitar</p>
+                    </div>
+                </div>
+                <div class="members">
+                    <div class="members__img">
+                        <img src="./img/band3_1.webp" alt="">
+                    </div>
+                    <div class="members__info">
+                        <h5>CHAD SMITH</h5>
+                        <p>Drums</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tours" class="tours">
+            <h2>UPCOMING TOURS</h2>
+            <div class="tours__controls">
+                <button class="ts__dates__button usa">AMERICAN TOUR</button>
+                <button class="ts__dates__button eur">EUROPEAN TOUR</button>
+            </div>
+            <div class="tours__info america">
+                <div class="tours__info__block">
+                    <span>10 MAR</span>
+                    <p>MELBOURNE,AU <i>(Rod Laver Arena)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>10 MAR</span>
+                    <p>MELBOURNE,AU <i>(Rod Laver Arena)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>10 MAR</span>
+                    <p>MELBOURNE,AU <i>(Rod Laver Arena)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>10 MAR</span>
+                    <p>MELBOURNE,AU <i>(Rod Laver Arena)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+            </div>
+            <div class="tours__info europe">
+                <div class="tours__info__block">
+                    <span>14 JUL</span>
+                    <p>STOCKHOLM, SWEDEN <i>(Annexet)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>14 JUL</span>
+                    <p>STOCKHOLM, SWEDEN <i>(Annexet)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>14 JUL</span>
+                    <p>STOCKHOLM, SWEDEN <i>(Annexet)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+                <div class="tours__info__block">
+                    <span>14 JUL</span>
+                    <p>STOCKHOLM, SWEDEN <i>(Annexet)</i>
+                    </p>
+                    <button class="ts__dates__button">
+                        <i class="bi bi-ticket-detailed-fill"></i>
+                        TICKETS
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="contacts" class="contacts">
+            <h2>STAY IN TOUCH</h2>
+            <div class="contacts__info">
+                <div class="contact">
+                    <h3>BOOKING</h3>
+                    <span>Name Surname</span>
+                    <p> +33112213 <br>
+                    info@sss.ua</p>
+                </div>
+                <div class="contact">
+                    <h3>PRESS</h3>
+                    <span>Name Surname</span>
+                    <p> +33112213 <br>
+                    info@sss.ua</p>
+                </div>
+                <div class="contact">
+                    <h3>INFO</h3>
+                    <span>Name Surname</span>
+                    <p> +33112213 <br>
+                    info@sss.ua</p>
+                </div>
+            </div>
+            <div class="contacts__social">
+                <ul class="info__social">
+                    <li><i class="bi bi-apple fa-4x"></i></li>
+                    <li><i class="bi bi-play-fill fa-4x"></i></li>
+                    <li><i class="bi bi-music-note fa-4x"></i></li>
+                    <li><i class="bi bi-ear-fill fa-4x"></i></li>
+                    <li><i class="bi bi-spotify fa-4x"></i></li>
+                    <li><i class="bi bi-youtube fa-4x"></i></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+    <script src="./script/scrolltosmooth.pkgd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
