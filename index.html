@@ -79,7 +79,6 @@
             </div>
 
         </section>
-
         <section id="new" class="songs" style="height:100vh;">
             <div class="songs__info info">
                 <h2>LATEST ALBUM</h2>
@@ -99,7 +98,7 @@
                 </ul>
             </div>
             <div class="songs__playlist playlist">
-                <iframe id="spotify" class=".playlist-spotify" style="border-radius:15px; width: 50vw; min-width: 270px;"
+                <iframe loading="lazy" id="spotify" class=".playlist-spotify" style="border-radius:15px; width: 50vw; min-width: 270px;"
                     src="" width="100%"
                     height="380" frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" ></iframe>
@@ -137,7 +136,6 @@
                 <button class="ts__dates__button"><i class="bi bi-ticket-perforated"></i> BUY A TICKET</button>
             </div>
         </section>
-
         <section id="disc" class="disk">
             <h2>DISCOGRAPHY</h2>
             <div class="disk__exam">
@@ -205,7 +203,7 @@
         </section>
         <section class="time">
             <h2>TIME LEFT UNTIL UPCOMING TOUR</h2>
-            <p>27 to 31 July 2022 with over 10 shows - Cincinnati, Ohio</p>
+            <p><span class="days"></span>:<span class="hours"><span class="end"></span></span>:<span class="mins"></span>:<span class="secs"></span></p>
         </section>
         <section id="band" class="band">
             <h2>BAND MEMBERS</h2>
@@ -366,6 +364,7 @@
         </section>
 
     </main>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./script/scrolltosmooth.pkgd.min.js" ></script>
     <script src="./script/script.js"></script>
