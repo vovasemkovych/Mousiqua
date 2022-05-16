@@ -1,0 +1,87 @@
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+@keyframes datesBlock {
+  0%{
+    background: repeating-linear-gradient(
+      45deg,
+      #ac2f1b,
+      #ac2f1b 10px,
+      #DC052D 10px,
+      #DC052D 20px
+    );
+  }
+  50%{
+    background: repeating-linear-gradient(
+        45deg,
+        #DC052D,
+        #DC052D 10px,
+        #ac2f1b 10px,
+        #ac2f1b 20px
+      );
+  }
+  100%{
+    background: repeating-linear-gradient(
+        45deg,
+        #ac2f1b,
+        #ac2f1b 10px,
+        #DC052D 10px,
+        #DC052D 20px
+      );
+
+  }
+}
+@keyframes datesBlock1 {
+  0%{
+    background: repeating-linear-gradient(
+        135deg,
+        #101014,
+        #101014 10px,
+        #303445 10px,
+        #303445 20px
+      );
+  }
+  50%{
+    background: repeating-linear-gradient(
+        135deg,
+        #303445,
+        #303445 10px,
+        #101014 10px,
+        #101014 20px
+      );
+  }
+  100%{
+    background: repeating-linear-gradient(
+        135deg,
+        #101014,
+        #101014 10px,
+        #303445 10px,
+        #303445 20px
+      );
+
+  }
+}
