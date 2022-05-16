@@ -69,10 +69,13 @@ $('.eur').click(() => {
     });
 })
 
-~
-    document.querySelector(".fas").addEventListener('click', () => {
-        window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank')
-    })
+
+document.querySelector(".fas").addEventListener('click', () => {
+    window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank')
+})
+document.querySelector(".tickets").addEventListener('click', () => {
+    window.open("https://www.ticketmaster.com/event/1E005B3E463F5483", '_blank')
+})
 
 $(document).scroll(function () {
     let y = $(this).scrollTop();
@@ -99,11 +102,11 @@ let renew = setInterval(function () {
     document.querySelector(".hours").innerHTML = `${hours}`
     document.querySelector(".mins").innerHTML = `${minutes}`
     document.querySelector(".secs").innerHTML = `${seconds}`
-    
+
     if (timeleft < 0) {
         clearInterval(myfunc);
         document.getElementById("days").innerHTML = ""
-        document.getElementById("hours").innerHTML = "" 
+        document.getElementById("hours").innerHTML = ""
         document.getElementById("mins").innerHTML = ""
         document.getElementById("secs").innerHTML = ""
         document.getElementById("end").innerHTML = "TIME UP!!";
