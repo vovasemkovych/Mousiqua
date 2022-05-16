@@ -1,0 +1,23 @@
+@mixin flex($disp,$jc,$ai,$fd){
+    display: $disp;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+}
+
+@mixin position($pos, $t, $b, $r, $l){
+    position: $pos;
+    top: $t;
+    bottom: $b;
+    right: $r;
+    left: $l;
+}
+@mixin heiwid($height, $width){
+    height: $height;
+    width: $width;
+}
+@mixin heiwido($height, $width, $of){
+    height: $height;
+    width: $width;
+    object-fit: $of;
+}
