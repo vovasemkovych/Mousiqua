@@ -77,6 +77,7 @@ document.querySelector(".tickets").addEventListener('click', () => {
     window.open("https://www.ticketmaster.com/event/1E005B3E463F5483", '_blank')
 })
 
+
 $(document).scroll(function () {
     let y = $(this).scrollTop();
     (y > 700) ? $('.header').css('background-color', 'rgba(19, 24, 29, 1)') : $('.header').css('background-color', 'rgba(19, 24, 29, 0.5)');
