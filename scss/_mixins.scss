@@ -5,7 +5,7 @@
     flex-direction: $fd;
 }
 
-@mixin position($pos, $t, $b, $r, $l){
+@mixin position($pos, $t, $r, $b, $l){
     position: $pos;
     top: $t;
     bottom: $b;

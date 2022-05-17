@@ -1,0 +1,19 @@
+h2 {
+    position: relative;
+    text-shadow: -1px -1px 0 #DC052D, 1px -1px 0 #DC052D, -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+    font-stretch: condensed;
+    font-size: 3.5rem;
+    font-weight: 100;
+    margin-bottom: 40px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        top: 60%;
+        left: -1px;
+        background: #DC052D;
+        z-index: -1;
+    }
+}
