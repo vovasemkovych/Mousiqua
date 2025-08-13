@@ -156,17 +156,25 @@ body {
     z-index: -1;
     @include position(absolute, 0,0, auto,0);
 
-
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transition: 1s;
-    @include flex(flex, center, center, column);
-
     color: #ffffff;
     font-family: 'Dosis', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     font-stretch: condensed;
+
+    // --- New: Hide slides by default, fade in/out with transition ---
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+    will-change: opacity;
+}
+
+.start_slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 .start_slide1 {
@@ -225,14 +233,30 @@ body {
 .togglers {
     @include flex(flex, center, baseline, row);
 
-    &__point::after {
-        color: $main_text_color;
-        content: '○';
+    &__point {
+        display: inline-block;
+        margin: 0 4px;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
-    }
+        background: transparent;
+        border: none;
+        position: relative;
+        outline: none;
 
-    &__point:hover::after {
-        content: '●';
+        &::after {
+            font-size: 1.6rem;
+            color: $main_text_color;
+            content: '○';
+            transition: color 0.2s;
+        }
+        &.active::after {
+            content: '●';
+            color: #DC052D;
+        }
+        &:hover::after {
+            color: #ac2f1b;
+        }
     }
 }
 
@@ -708,4 +732,5 @@ body {
 }
 
 // =======================START END===================
+
 @import "media"
