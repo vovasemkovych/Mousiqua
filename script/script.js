@@ -1,128 +1,119 @@
-'use strict';
+// ===================== SLIDES =====================
+const slides = document.querySelectorAll(".start_slide");
+const points = document.querySelectorAll(".togglers__point");
+
+let currentSlide = 0;
+
+// Show slide by index
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    points.forEach(point => point.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    points[index].classList.add("active");
+}
+
+points.forEach((point, idx) => {
+    point.addEventListener("click", () => {
+        currentSlide = idx;
+        showSlide(currentSlide);
+    });
+});
+
+// Auto slide every 5s
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}, 5000);
+
+// Initialize first slide
+showSlide(currentSlide);
+
+// ===================== MENU =====================
+const menuBar = document.getElementById("menu-bar");
+const nav = document.getElementById("nav");
+const menuBg = document.getElementById("menu-bg");
 
 function menuOnClick() {
-    document.querySelector("#menu-bar").classList.toggle("change");
-    document.querySelector("#nav").classList.toggle("change");
-    document.querySelector("#menu-bg").classList.toggle("change-bg");
+    nav.classList.toggle("active_flex");
+    menuBg.classList.toggle("active_flex");
+
+    // Animate hamburger bars
+    menuBar.classList.toggle("change");
 }
-document.querySelector('#menu-bar').addEventListener('click', menuOnClick);
 
-let smoothScroll = new scrollToSmooth('a', {
-    targetAttribute: 'href',
-    duration: 400,
-    easing: 'easeOutCubic',
-    fixedHeader: null
-});
-smoothScroll.init();
-
-$(document).ready(function () {
-    $('#spotify').attr('src', 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator');
-    $('#menu-bar').click();
+// Close menu when background clicked
+menuBg.addEventListener("click", () => {
+    nav.classList.remove("active_flex");
+    menuBg.classList.remove("active_flex");
+    menuBar.classList.remove("change");
 });
 
-$('.search').click(() => {
-    $('.smenu').addClass('active_flex');
+// ===================== SEARCH =====================
+const searchBtn = document.querySelector(".search");
+const smenu = document.querySelector(".smenu");
+const smenuClose = document.querySelector(".smenu__close");
+
+searchBtn.addEventListener("click", () => {
+    smenu.classList.add("active_flex");
 });
-$('.smenu__close').click(() => {
-    $('.smenu').removeClass('active_flex');
+
+smenuClose.addEventListener("click", () => {
+    smenu.classList.remove("active_flex");
 });
 
-// --- SLIDESHOW REFACTOR START ---
+// ===================== PLAY BUTTON =====================
+const playContainer = document.querySelector(".container");
+const playBtn = playContainer.querySelector(".fas");
+playContainer.addEventListener("click", () => {
+    window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", "_blank");
+});
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Preload slide backgrounds (if not already in cache)
-    new Image().src = "img/start_back.webp";
-    new Image().src = "img/start_back1.webp";
+// ===================== COUNTDOWN TIMER =====================
+const endDate = new Date("July 23, 2025 00:00:00").getTime();
 
-    const slides = [
-        document.querySelector('.start_slide1'),
-        document.querySelector('.start_slide2')
-    ];
-    const dots = [
-        document.querySelector('.point1'),
-        document.querySelector('.point2')
-    ];
+function updateTimer() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
-        dots.forEach((dot, i) => {
-            if (i === index) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
+    if (distance < 0) {
+        document.querySelector(".days").textContent = "0";
+        document.querySelector(".hours").textContent = "0";
+        document.querySelector(".mins").textContent = "0";
+        document.querySelector(".secs").textContent = "0";
+        return;
     }
 
-    // Initial state
-    showSlide(0);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((distance / (1000 * 60)) % 60);
+    const secs = Math.floor((distance / 1000) % 60);
 
-    dots[0].addEventListener('click', () => showSlide(0));
-    dots[1].addEventListener('click', () => showSlide(1));
+    document.querySelector(".days").textContent = days;
+    document.querySelector(".hours").textContent = hours;
+    document.querySelector(".mins").textContent = mins;
+    document.querySelector(".secs").textContent = secs;
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// ===================== TOURS BUTTON =====================
+const usaBtn = document.querySelector(".usa");
+const eurBtn = document.querySelector(".eur");
+const america = document.querySelector(".america");
+const europe = document.querySelector(".europe");
+
+usaBtn.addEventListener("click", () => {
+    america.style.display = "flex";
+    europe.style.display = "none";
 });
 
-// --- SLIDESHOW REFACTOR END ---
-
-$(document).ready(function () {
-    $('.europe').fadeOut();
-});
-$('.usa').click(() => {
-    $('.america').fadeIn(500, () => {
-        $('.europe').fadeOut(500);
-    });
-});
-$('.eur').click(() => {
-    $('.europe').fadeIn(500, () => {
-        $('.america').fadeOut(500);
-    });
+eurBtn.addEventListener("click", () => {
+    america.style.display = "none";
+    europe.style.display = "flex";
 });
 
-document.querySelector(".fas").addEventListener('click', () => {
-    window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank');
-});
-
-document.querySelector(".tickets").addEventListener('click', () => {
-    window.open("https://www.ticketmaster.com/event/1E005B3E463F5483", '_blank');
-});
-
-$(document).scroll(function () {
-    let y = $(this).scrollTop();
-    (y > 700) ? $('.header').css('background-color', 'rgba(19, 24, 29, 1)') : $('.header').css('background-color', 'rgba(19, 24, 29, 0.5)');
-});
-
-ScrollReveal().reveal('.ts', { duration: 1000 }, { delay: 600 }, { origin: 'right' });
-ScrollReveal().reveal('.disk', { duration: 1000 }, { delay: 600 }, { origin: 'left' });
-ScrollReveal().reveal('.time', { duration: 1000 }, { delay: 600 }, { origin: 'right' });
-ScrollReveal().reveal('.band', { duration: 1000 }, { delay: 600 }, { origin: 'left' });
-ScrollReveal().reveal('.tours', { duration: 1000 }, { delay: 600 }, { origin: 'right' });
-ScrollReveal().reveal('.contacts', { duration: 1000 }, { delay: 600 }, { origin: 'left' });
-
-let countDownDate = new Date("Jul 14, 2022 16:00:00").getTime();
-let renew = setInterval(function () {
-    let now = new Date().getTime();
-    let timeleft = countDownDate - now;
-    let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-
-    document.querySelector(".days").innerHTML = `${days}`;
-    document.querySelector(".hours").innerHTML = `${hours}`;
-    document.querySelector(".mins").innerHTML = `${minutes}`;
-    document.querySelector(".secs").innerHTML = `${seconds}`;
-
-    if (timeleft < 0) {
-        clearInterval(renew);
-        document.getElementById("days").innerHTML = "";
-        document.getElementById("hours").innerHTML = "";
-        document.getElementById("mins").innerHTML = "";
-        document.getElementById("secs").innerHTML = "";
-        document.getElementById("end").innerHTML = "TIME UP!!";
-    }
-}, 1000);
+// ===================== SPOTIFY IFRAME =====================
+const spotifyIframe = document.getElementById("spotify");
+spotifyIframe.src = "https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator";
