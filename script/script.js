@@ -7,7 +7,15 @@ function menuOnClick() {
     document.querySelector("#menu-bg").classList.toggle("change-bg");
 }
 
-// Initialize smooth scrolling (assuming you have the scrolltosmooth library)
+// Add event listener for menu bar
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBar = document.querySelector('#menu-bar');
+    if (menuBar) {
+        menuBar.addEventListener('click', menuOnClick);
+    }
+});
+
+// Initialize smooth scrolling (if available)
 if (typeof scrollToSmooth !== 'undefined') {
     let smoothScroll = new scrollToSmooth('a', {
         targetAttribute: 'href',
@@ -18,73 +26,90 @@ if (typeof scrollToSmooth !== 'undefined') {
     smoothScroll.init();
 }
 
-// Document ready function
+// MAIN INITIALIZATION
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize slideshow
+    // Initialize slideshow FIRST
     initializeSlideshow();
     
-    // Set up Spotify iframe
-    const spotifyIframe = document.querySelector('#spotify');
-    if (spotifyIframe) {
-        spotifyIframe.src = 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator';
-    }
-    
-    // Set up search functionality
+    // Other initializations
     setupSearchFunctionality();
-    
-    // Set up tour controls
     setupTourControls();
-    
-    // Set up play button functionality
     setupPlayButton();
-    
-    // Set up ticket button functionality
     setupTicketButtons();
-    
-    // Set up header scroll effect
     setupHeaderScrollEffect();
-    
-    // Initialize countdown timer
     initializeCountdownTimer();
     
-    // Initialize scroll animations (if ScrollReveal is available)
-    if (typeof ScrollReveal !== 'undefined') {
-        initializeScrollAnimations();
-    }
+    // Set up Spotify iframe
+    setTimeout(() => {
+        const spotifyIframe = document.querySelector('#spotify');
+        if (spotifyIframe) {
+            spotifyIframe.src = 'https://open.spotify.com/embed/album/2ITVvrNiINKRiW7wA3w6w6?utm_source=generator';
+        }
+    }, 500);
 });
 
-// Slideshow functionality
+// FIXED SLIDESHOW FUNCTIONALITY
 function initializeSlideshow() {
+    console.log('Initializing slideshow...');
+    
     const slides = document.querySelectorAll('.start_slide');
     const dots = document.querySelectorAll('.togglers__point');
     let currentSlide = 0;
 
-    function showSlide(index) {
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        if (slides[index]) slides[index].classList.add('active');
-        if (dots[index]) dots[index].classList.add('active');
+    console.log('Found slides:', slides.length);
+    console.log('Found dots:', dots.length);
+
+    if (slides.length === 0 || dots.length === 0) {
+        console.error('Slideshow elements not found!');
+        return;
     }
 
-    // Initialize first slide
+    // Function to show specific slide
+    function showSlide(index) {
+        console.log('Showing slide:', index);
+        
+        // Remove active class from all slides and dots
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            console.log(`Slide ${i} active removed`);
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.classList.remove('active');
+            console.log(`Dot ${i} active removed`);
+        });
+        
+        // Add active class to current slide and dot
+        if (slides[index]) {
+            slides[index].classList.add('active');
+            console.log(`Slide ${index} activated`);
+        }
+        if (dots[index]) {
+            dots[index].classList.add('active');
+            console.log(`Dot ${index} activated`);
+        }
+    }
+
+    // Initialize first slide immediately
     showSlide(0);
 
     // Add click event listeners to dots
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Dot clicked:', index);
             currentSlide = index;
             showSlide(currentSlide);
         });
     });
 
-    // Auto-advance slides every 5 seconds
-    setInterval(() => {
+    // Auto-advance slides every 6 seconds
+    setInterval(function() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
-    }, 5000);
+    }, 6000);
+    
+    console.log('Slideshow initialized successfully');
 }
 
 // Search functionality
@@ -135,9 +160,17 @@ function setupTourControls() {
 
 // Play button functionality
 function setupPlayButton() {
-    const playButton = document.querySelector(".fas");
+    const playButton = document.querySelector(".fas.fa-play");
     if (playButton) {
         playButton.addEventListener('click', () => {
+            window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank');
+        });
+    }
+    
+    // Also check for container with play button
+    const containerPlay = document.querySelector(".container");
+    if (containerPlay) {
+        containerPlay.addEventListener('click', () => {
             window.open("https://www.youtube.com/watch?v=OS8taasZl8k&ab_channel=RedHotChiliPeppers", '_blank');
         });
     }
@@ -160,7 +193,7 @@ function setupHeaderScrollEffect() {
         const scrollY = window.scrollY;
         
         if (header) {
-            if (scrollY > 700) {
+            if (scrollY > 100) {
                 header.style.backgroundColor = 'rgba(19, 24, 29, 1)';
             } else {
                 header.style.backgroundColor = 'rgba(19, 24, 29, 0.5)';
@@ -171,7 +204,7 @@ function setupHeaderScrollEffect() {
 
 // Countdown timer functionality
 function initializeCountdownTimer() {
-    // Set countdown date to July 14, 2025 (updated from 2022)
+    // Updated countdown date to future date
     const countDownDate = new Date("Jul 14, 2025 16:00:00").getTime();
     
     const timer = setInterval(function() {
@@ -189,40 +222,42 @@ function initializeCountdownTimer() {
         const secsElement = document.querySelector(".secs");
         const endElement = document.querySelector(".end");
         
-        if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
-        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
-        if (minsElement) minsElement.textContent = minutes.toString().padStart(2, '0');
-        if (secsElement) secsElement.textContent = seconds.toString().padStart(2, '0');
+        if (daysElement) daysElement.textContent = String(days).padStart(2, '0');
+        if (hoursElement) hoursElement.textContent = String(hours).padStart(2, '0');
+        if (minsElement) minsElement.textContent = String(minutes).padStart(2, '0');
+        if (secsElement) secsElement.textContent = String(seconds).padStart(2, '0');
         
         if (timeLeft < 0) {
             clearInterval(timer);
-            if (daysElement) daysElement.textContent = "";
-            if (hoursElement) hoursElement.textContent = "";
-            if (minsElement) minsElement.textContent = "";
-            if (secsElement) secsElement.textContent = "";
+            if (daysElement) daysElement.textContent = "00";
+            if (hoursElement) hoursElement.textContent = "00";
+            if (minsElement) minsElement.textContent = "00";
+            if (secsElement) secsElement.textContent = "00";
             if (endElement) endElement.textContent = "TOUR HAS STARTED!";
         }
     }, 1000);
 }
 
-// Scroll animations using ScrollReveal
-function initializeScrollAnimations() {
-    const revealOptions = { 
-        duration: 1000, 
-        delay: 600, 
-        distance: '50px',
-        easing: 'ease-in-out'
-    };
+// Initialize scroll animations (if ScrollReveal is available)
+if (typeof ScrollReveal !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', function() {
+        const revealOptions = { 
+            duration: 1000, 
+            delay: 600, 
+            distance: '50px',
+            easing: 'ease-in-out'
+        };
 
-    ScrollReveal().reveal('.ts', { ...revealOptions, origin: 'right' });
-    ScrollReveal().reveal('.disk', { ...revealOptions, origin: 'left' });
-    ScrollReveal().reveal('.time', { ...revealOptions, origin: 'right' });
-    ScrollReveal().reveal('.band', { ...revealOptions, origin: 'left' });
-    ScrollReveal().reveal('.tours', { ...revealOptions, origin: 'right' });
-    ScrollReveal().reveal('.contacts', { ...revealOptions, origin: 'left' });
+        ScrollReveal().reveal('.ts', { ...revealOptions, origin: 'right' });
+        ScrollReveal().reveal('.disk', { ...revealOptions, origin: 'left' });
+        ScrollReveal().reveal('.time', { ...revealOptions, origin: 'right' });
+        ScrollReveal().reveal('.band', { ...revealOptions, origin: 'left' });
+        ScrollReveal().reveal('.tours', { ...revealOptions, origin: 'right' });
+        ScrollReveal().reveal('.contacts', { ...revealOptions, origin: 'left' });
+    });
 }
 
-// jQuery compatibility functions (if jQuery is loaded)
+// jQuery compatibility (if jQuery is loaded)
 if (typeof $ !== 'undefined') {
     $(document).ready(function() {
         // Set Spotify iframe source
@@ -244,7 +279,7 @@ if (typeof $ !== 'undefined') {
             });
         });
         
-        // Search functionality with jQuery
+        // Search functionality with jQuery  
         $('.search').click(() => {
             $('.smenu').addClass('active_flex');
         });
@@ -255,57 +290,25 @@ if (typeof $ !== 'undefined') {
     });
 }
 
-// Menu bar click handler (backup)
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.id === 'menu-bar') {
-        menuOnClick();
-    }
+// Error handling and debugging
+window.addEventListener('error', function(e) {
+    console.error('JavaScript Error:', e.error);
 });
 
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Optimize scroll events
-const debouncedScrollHandler = debounce(() => {
-    setupHeaderScrollEffect();
-}, 10);
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Error handling for missing elements
-function safelyExecute(func, errorMessage) {
-    try {
-        func();
-    } catch (error) {
-        console.warn(errorMessage, error);
-    }
-}
-
-// Preload critical images
-function preloadImages() {
-    const imagesToPreload = [
-        'img/start_back.webp',
-        'img/start_back1.webp',
-        'img/tour_back.webp',
-        'img/4.webp',
-        'img/vinyl.png'
-    ];
+// Debug function to check slideshow elements
+function debugSlideshow() {
+    console.log('=== SLIDESHOW DEBUG ===');
+    console.log('Slides found:', document.querySelectorAll('.start_slide').length);
+    console.log('Dots found:', document.querySelectorAll('.togglers__point').length);
     
-    imagesToPreload.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    document.querySelectorAll('.start_slide').forEach((slide, i) => {
+        console.log(`Slide ${i}:`, slide.classList.contains('active') ? 'ACTIVE' : 'inactive');
+    });
+    
+    document.querySelectorAll('.togglers__point').forEach((dot, i) => {
+        console.log(`Dot ${i}:`, dot.classList.contains('active') ? 'ACTIVE' : 'inactive');
     });
 }
 
-// Initialize image preloading
-preloadImages();
+// Call debug function after 2 seconds (for testing)
+setTimeout(debugSlideshow, 2000);
